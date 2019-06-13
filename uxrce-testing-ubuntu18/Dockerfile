@@ -2,7 +2,7 @@
 # Micro XRCE-DDS testing docker
 #########################################################################################
 
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 WORKDIR home/
 
 # Essentials
@@ -12,7 +12,8 @@ RUN apt-get install -y \
             build-essential \
             cmake \
             git \
-            vim
+            vim \
+            ranger
 
 # Java
 RUN apt install -y openjdk-8-jdk
