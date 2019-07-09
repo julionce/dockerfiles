@@ -5,5 +5,5 @@ Use the following command to run a Docker container with desktop output:
 
 ```bash
 xhost +
-sudo docker run -it --rm -i DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix
+sudo docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix
 ```

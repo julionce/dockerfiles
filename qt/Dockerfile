@@ -1,7 +1,8 @@
 ###################################################################################################
 # Qt Creator dockerfile
 ###################################################################################################
-FROM ubuntu:latest
+ARG BASE_IMAGE=ubuntu:latest
+FROM $BASE_IMAGE
 WORKDIR /root
 
 RUN apt update
@@ -20,3 +21,6 @@ RUN chmod +x ./qt-unified-linux-x64-online.run
 # Copy and run Qt script in order to avoid interactive installation.
 COPY qt-noninteractive.qs /root/qt-noninteractive.qs
 RUN ./qt-unified-linux-x64-online.run --script qt-noninteractive.qs -platform minimal
+
+# Remove unnecessary files.
+RUN rm qt-noninteractive.qs qt-unified-linux-x64-online.run
