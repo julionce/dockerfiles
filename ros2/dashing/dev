@@ -70,5 +70,5 @@ RUN cd ~/ros2_dashing \
 &&  rosdep init \
 &&  rosdep update \
 &&  rosdep install --from-paths src --ignore-src --rosdistro dashing -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers" \
-&&  colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Debug \
+&&  colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug \
 &&  rm -rf ./build ./log ./src
