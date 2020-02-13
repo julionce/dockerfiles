@@ -5,7 +5,14 @@ ARG BASE_IMAGE=ubuntu
 
 FROM $BASE_IMAGE
 
-ARG USERNAME=urosu
+RUN apt update \
+&&  apt install -y \
+        ssh \
+        vim \
+        ranger \
+&&  rm -rf /var/lib/apt/list/*
+
+ARG USERNAME=docker
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
@@ -18,3 +25,4 @@ RUN groupadd --gid $USER_GID $USERNAME \
 &&  rm -rf /var/lib/apt/list/*
 
 USER $USERNAME
+WORKDIR /home/$USERNAME
